@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Nanum Pen Script', cursive;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #a7c6eb;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* Product Display */
+#product-display {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.polaroid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* 간격을 조금 더 벌리기 */
+    justify-content: center;
+    position: relative;
+}
+
+.polaroid {
+    background: #fff;
+    padding: 20px; /* 패딩 증가 */
+    width: 280px; /* 폴라로이드의 전체 너비 증가 */
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 그림자 조금 더 강조 */
+    transform: rotate(calc(var(--angle) * 1deg));
+    position: relative;
+    z-index: 1;
+    border-radius: 10px; /* 약간 둥근 모서리 */
+}
+
+.polaroid img {
+    width: 100%; /* 폴라로이드 너비에 맞게 이미지 조정 */
+    height: 250px; /* 이미지 높이를 더 키움 */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px; /* 이미지 모서리를 부드럽게 */
+}
+
+.polaroid a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모 색상 계승 (선택 사항) */
+}
+
+.polaroid a:hover {
+    text-decoration: none; /* 호버 상태에서도 밑줄 제거 */
+}
+
+.polaroid h3 {
+    font-size: 25px; /* 텍스트 크기 증가 */
+    margin: 0;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #a7c6eb;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 하기</title>
+    <link rel="icon" href="./image/강아지.jpg">
+    <link rel="stylesheet" href="./주문하기.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Hachi+Maru+Pop&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>주문하기</h1>
+</header>
+<main>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="./image/녹차라떼.jpg" alt="녹차라떼">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h3>영양 정보</h3>
+                    <ul>
+                        <li>열량: 364kcal</li>
+                        <li>나트륨: 182mg</li>
+                        <li>탄수화물: 71g</li>
+                        <li>당: 61g</li>
+                        <li>단백질: 10g</li>
+                        <li>카페인: 209mg</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="product-details">
+            <h2>녹차라떼</h2>
+            <p>햇빛을 차단해 재배한 유기농 제주의 첫물 찻잎만을 이용하여 만든 티 라떼로 진하면서 떫은 맛은 적은 부드러운 말차라떼
+            </p>
+            <p><strong>가격:</strong> 5000원</p>
+            <div class="option">
+                <h3>옵션 선택</h3>
+                <form>
+                    <label>
+                        <input type="radio" name="option" value="HOT"> HOT
+                    </label>
+                    <label>
+                        <input type="radio" name="option" value="ICE" checked> ICE
+                    </label>
+                </form>
+            </div>
+            <div class="buttons">
+                <button class="btn">바로주문</button>
+                <button class="btn btn-cart" onclick="addToCart()">장바구니</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function addToCart() {
+        // 로컬 스토리지에서 장바구니 항목 수를 가져오거나 초기화합니다.
+        let cartCount = localStorage.getItem('cartCount');
+        cartCount = cartCount ? parseInt(cartCount) : 0;
+
+        // 장바구니 항목 수를 증가시킵니다.
+        cartCount++;
+
+        // 업데이트된 장바구니 항목 수를 로컬 스토리지에 저장합니다.
+        localStorage.setItem('cartCount', cartCount);
+
+        // 헤더의 장바구니 아이콘에 항목 수를 업데이트합니다.
+        updateCartIcon(cartCount);
+    }
+
+    function updateCartIcon(count) {
+        // 변경된 부분: 부모 창(메인 페이지)의 document에서 cart-count 요소를 찾습니다.
+        if (window.parent) {
+            const cartCountElement = window.parent.document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = count;
+            }
+        }
+    }
+
+    // 페이지 로드 시 장바구니 아이콘을 업데이트합니다.
+    window.onload = () => {
+        let cartCount = localStorage.getItem('cartCount');
+        cartCount = cartCount ? parseInt(cartCount) : 0;
+        updateCartIcon(cartCount);
+    };
+</script>
+</body>
+</html>

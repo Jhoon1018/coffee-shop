@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="coffee.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Style for the cart icon */
+        .cart-icon {
+            font-size: 2em; /* Adjust size as needed */
+            color: #333; /* Adjust color as needed */
+            margin-left: 20px; /* Adjust spacing as needed */
+            cursor: pointer; /* Make it look clickable */
+        }
+
+        .inner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vertically align items */
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center; /* Vertically align items */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="inner-header">
+            <div class="logo">
+                <a href="#" id="home-link">
+                    <img src="./image/고양이.jpg" alt="고양이 로고">
+                </a>
+            </div>
+            <div class="header-right">
+                <h1>Coffee Shop</h1>
+                <div style="position: relative;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Display -->
+    <main id="product-display">
+        <div class="polaroid-container">
+            <!-- Polaroid cards dynamically generated here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Coffee Shop. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        const polaroidContainer = document.querySelector('.polaroid-container');
+
+        // Mock data
+        const menuItems = {
+            아메리카노: { src: './image/아이스-아메리카노.jpg', description: '아메리카노 - 시원한 아이스 커피', link: '아메리카노.html' },
+            카페라떼: { src: './image/핫-카페라떼.jpg', description: '카페라떼 - 부드러운 에스프레소', link: '카페라떼.html' },
+            카페모카: { src: './image/카페모카_핫_1.jpg', description: '카페모카 - 초콜릿과 커피의 조화', link: '카페모카.html' },
+            녹차라떼: { src: './image/녹차라떼.jpg', description: '녹차라떼 - 부드러운 말차 음료', link: '녹차라떼.html' },
+            드립커피: { src: './image/핫--드립커피.jpg', description: '드립커피 - 신선하게 추출된 커피', link: '드립커피.html' },
+            제주유기농작설: { src: './image/[홈페이지]-제주유기농작설_아이스.jpg', description: '제주유기농작설 - 고급 티', link: '제주유기농작설.html' },
+            플레인버터스콘: { src: './image/플레인버터스콘.jpg', description: '플레인버터스콘 - 촉촉한 스콘', link: '플레인버터스콘.html' },
+            스트로베리화이트레드벨벳: { src: './image/스트로베리-화이트-레드벨벳-케익.jpg', description: '스트로베리 화이트 레드벨벳 - 딸기와 크림', link: '스트로베리화이트레드벨벳.html' }
+        };
+
+        //기본경로
+        const basePath = 'http://localhost:5500/';
+
+        // Generate all polaroids for the menu
+
+        Object.keys(menuItems).forEach((key) => {
+            const { src, description, link } = menuItems[key];
+
+            if (!link) {
+                console.error(`Link is missing for ${key}`);
+                return; // 링크가 없는 경우 스킵
+            }
+
+            const polaroid = document.createElement('div');
+            polaroid.className = 'polaroid';
+
+            polaroid.innerHTML = `
+                <a href="${link}">
+                    <img src="${src}" alt="${key}">
+                    <h3>${description}</h3>
+                </a>
+            `;
+
+            polaroidContainer.appendChild(polaroid);
+        });
+
+       
+    </script>
+</body>
+</html>

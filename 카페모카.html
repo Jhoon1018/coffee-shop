@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 하기</title>
+    <link rel="icon" href="./image/강아지.jpg">
+    <link rel="stylesheet" href="./주문하기.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Hachi+Maru+Pop&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>주문하기</h1>
+</header>
+<main>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="./image/카페모카_핫_1.jpg" alt="카페모카">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h3>영양 정보</h3>
+                    <ul>
+                     <li>열량 : 286kcal</li>
+                     <li>나트튬 : 281mg</li>
+                     <li>탄수화물 : 46g</li>
+                     <li>당 : 39g</li>
+                     <li>단백질 : 13g</li>
+                     <li>카페인 : 101mg</li>
+                     <li>포화지방 : 4g</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="product-details">
+            <h2>카페모카</h2>
+            <p>네덜란드 코코아의 깊고 진한 초콜릿의 풍미가 느껴지는 에스프레소 음료
+            </p>
+            <p><strong>가격:</strong> 5000원</p>
+            <div class="option">
+                <h3>옵션 선택</h3>
+                <form>
+                    <label>
+                        <input type="radio" name="option" value="HOT"> HOT
+                    </label>
+                    <label>
+                        <input type="radio" name="option" value="ICE" checked> ICE
+                    </label>
+                </form>
+            </div>
+            <div class="buttons">
+                <button class="btn">바로주문</button>
+                <button class="btn btn-cart">장바구니</button>
+            </div>
+        </div>
+    </div>
