@@ -7,17 +7,46 @@ body {
 }
 
 header {
-    text-align: center;
-    padding: 20px 0;
-    background: rgba(167, 198, 235, 0.9);
-    color: #fff;
+    background-color: #a7c6eb;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-family: 'Agdasima', sans-serif;
-    font-size: 2.5rem;
-    margin: 0;
+.inner-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 글자를 가운데 정렬 */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* 로고를 절대 위치로 배치하기 위해 필요 */
 }
+
+.logo {
+    position: absolute;
+    left: 20px; /* 왼쪽 여백 */
+    top: 50%;
+    transform: translateY(-50%); /* 세로 가운데 맞춤 */
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 제목은 가운데 */
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
 
 main {
     display: flex;
